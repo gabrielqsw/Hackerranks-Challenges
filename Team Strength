@@ -1,0 +1,20 @@
+def max_team_strength(n):
+    team = [n]
+    for value in team:
+        str_value = str(value)
+        new_value = 0
+        for i in str_value:
+            new_value += math.factorial(int(i))
+        if new_value in team:
+            break
+        if new_value not in team:
+            team.append(new_value)
+    max_id = 0
+    for id in team:
+        if id > max_id:
+            max_id = id
+    max_team_strength = max_id*len(team)
+    print(team, max_team_strength)
+    return max_team_strength
+    
+max_team_strength(8)
